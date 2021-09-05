@@ -1,23 +1,22 @@
-var todayDate = $('#currentDay').text(moment().format("dddd, MMMM Do YYYY"));
-var tasks = [];
-var saveTasks = function () {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-};
-var loadTasks = function () {
-  JSON.parse(localStorage.getItem('tasks')) || [];
-}
 
-$('#save-btn').click(function() {
-  var taskText = $("#task-description").val();
-  var taskTime = $("#hour").val();
+$('.saveBtn').click(function(event) {
+  //try clicking on a save button now, then...
 
-  var completeTask = [{
-    text: taskText,
-    date: taskTime,
-  }];
-  saveTasks();
-  tasks.push(completeTask);
+  console.log(event) //1. peruse this! What information is fed to a click-event-handler? There's a LOT.
+
+  console.log(event.target) //2. OOH what's this?
+
+  console.log(event.target.id) //3. Ah ha!
+
+
+  // var taskText = $("#task-description").val();
+  // var taskTime = $("#hour").val();
+
+  // var completeTask = [{
+  //   text: taskText,
+  //   date: taskTime,
+  // }];
+  // tasks.push(completeTask);
+  // saveTasks();
   
 })
-
-loadTasks();

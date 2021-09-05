@@ -21,10 +21,6 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.row {
-  margin: 5px;
-}
-
 .description{
   white-space: pre-wrap;
 }
@@ -37,7 +33,8 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
+  background-color: #77dd77;
 }
 
 .hour {
@@ -73,26 +70,3 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
-
-.col-md-10 {
-  background-color: #ff6961;
-}
-
-.col-md-1-button {
-  justify-content: center;
-}
-
-.btn btn-primary {
-  padding: 10px;
-  color: #77dd77;
-}
-
-.col-md-1 {
-  padding: 4px;
-  border: 2px grey;
-  border-style: dotted solid dotted none;
-  text-align: right;
-  justify-content: center;
-}
-
-/* Need to have a class that will assign states for past, present and future in CSS and JS */

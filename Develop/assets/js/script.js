@@ -5,15 +5,13 @@ var saveTasks = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-var loadTasks = function () {
   JSON.parse(localStorage.getItem('tasks')) || [];
-}
+
 
 $(".saveBtn").each(function (index, btn) {
   $(btn).click(function (event) {
    var taskText = $(this).parent().siblings('textarea').val();
    var taskTime = $(this).parent().siblings('.hour').html();
-   console.log(taskText);
 
     var completeTask = {
       text: taskText,

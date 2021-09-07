@@ -1,12 +1,14 @@
 var todayDate = $('#currentDay').text(moment().format("dddd, MMMM Do YYYY"));
-var tasks = [];
+var tasks = JSON.parse(localStorage.getItem('tasks')) || [];;
 
 var saveTasks = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-  JSON.parse(localStorage.getItem('tasks')) || [];
-
+function keepValues(tasks) {
+  for (var i = 0; i < tasks.length; i++) {
+  }
+}
 
 $(".saveBtn").each(function (index, btn) {
   $(btn).click(function (event) {
@@ -21,4 +23,4 @@ $(".saveBtn").each(function (index, btn) {
     saveTasks();
   })
 })
-
+keepValues();

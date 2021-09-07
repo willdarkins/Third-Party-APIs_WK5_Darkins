@@ -1,23 +1,26 @@
 var todayDate = $('#currentDay').text(moment().format("dddd, MMMM Do YYYY"));
 var tasks = [];
-var time = [];
 
 var saveTasks = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-$('.saveBtn').click(function() {
-  //try clicking on a save button now, then...
+var loadTasks = function () {
+  JSON.parse(localStorage.getItem('tasks')) || [];
+}
 
-  var taskText = $('.text-task').val();
-  var taskTime = $('.hour').html();
+$(".saveBtn").each(function (index, btn) {
+  $(btn).click(function (event) {
+   var taskText = $(this).parent().siblings('textarea').val();
+   var taskTime = $(this).parent().siblings('.hour').html();
+   console.log(taskText);
 
-  var completeTask = {
-    text: taskText,
-    time: taskTime,
-  }
-  tasks.push(completeTask);
-  saveTasks();
+    var completeTask = {
+      text: taskText,
+      time: taskTime,
+    }
+    tasks.push(completeTask);
+    saveTasks();
+  })
 })
 
-  

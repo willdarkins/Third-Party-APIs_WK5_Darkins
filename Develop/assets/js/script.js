@@ -5,7 +5,7 @@ var saveTasks = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-function showText(hour) {
+function showText(hour, tasks) {
   var row = $('<div>');
   var timeContainer = $('<div>');
   var textBlock = $('<textarea>');
@@ -15,26 +15,26 @@ function showText(hour) {
 
   row.addClass("row g-0");
   timeContainer.addClass('col-md-1 hour').text(hour);
-  textBlock.addClass('col-md-10 text-task').text();
+  textBlock.addClass('col-md-10 text-task').text(tasks);
   divButton.addClass('col-md-1');
   button.addClass('btn btn-primary saveBtn').attr('style', "padding: 38.5px 45px", 'border-radius: 0 15px 15px 0')
-  svgGraphic.addClass('bi-save');
+  svgGraphic.addClass('bi-save').attr('style', 'color:white')
   
   row.append(timeContainer);
   row.append(textBlock);
-  button.append(svgGraphic);
   divButton.append(button);
+  button.append(svgGraphic);
   row.append(divButton);
 
 
 $('.container').append(row);      
 }
 
-time.forEach(hour => showText)
-tasks.forEach(text => showText)
+time.forEach(hour => showText())
+tasks.forEach(text => showText())
 
-$(".btn btn-primary saveBtn").each(function (index, button) {
-  $(button).click(function (event) {
+$(".btn btn-primary saveBtn").each(function (index, btn) {
+  $(btn).click(function (event) {
     var taskText = $(this).parent().siblings('textarea').val();
     var taskTime = $(this).parent().siblings('.col-md-1 hour').text();
 

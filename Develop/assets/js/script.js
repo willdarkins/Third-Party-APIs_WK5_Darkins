@@ -1,9 +1,6 @@
 var todayDisplayDate = $('#currentDay').text(moment().format("dddd, MMMM Do YYYY"));
 
-hours.forEach(number => {
-  var currentHour = moment().hours(number[i])
-  $('#' + task.time).attr(currentHour);
-})
+
 
 var loadTasks = function() {
   tasks = JSON.parse(localStorage.getItem('tasks')) || [];

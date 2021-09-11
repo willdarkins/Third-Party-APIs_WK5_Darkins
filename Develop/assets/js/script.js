@@ -1,41 +1,31 @@
 var todayDate = $('#currentDay').text(moment().format("dddd, MMMM Do YYYY"));
-var tasks = JSON.parse(localStorage.getItem('tasks')) || [];;
 var time = ['9AM','10AM','11AM','12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
-
+var tasks = JSON.parse(localStorage.getItem('tasks')) || [];;
 var saveTasks = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
 function showText(hour) {
   var row = $('<div>');
-  // <div>
   var timeContainer = $('<div>');
   var textBlock = $('<textarea>');
   var divButton = $('<div>');
   var button = $('<button>');
   var svgGraphic= $('<svg>');
+
   row.addClass("row g-0");
-  // <div class="row g-0">
   timeContainer.addClass('col-md-1 hour').text(hour);
-  textBlock.addClass('col-md-10 text-task').text(tasks);
+  textBlock.addClass('col-md-10 text-task').text();
   divButton.addClass('col-md-1');
-  button.addClass('btn btn-primary saveBtn');
+  button.addClass('btn btn-primary saveBtn').attr('style', "padding: 38.5px 45px", 'border-radius: 0 15px 15px 0')
   svgGraphic.addClass('bi-save');
-  divButton.append(button);
-
-
+  
   row.append(timeContainer);
   row.append(textBlock);
+  button.append(svgGraphic);
+  divButton.append(button);
   row.append(divButton);
-  row.append(button);
-  row.append(svgGraphic);
-  /* <div class="row g-0">
-      <div></div>
-      <textarea></textarea>
-      <div></div>
-      <button></button>
-      <svg>
-      </div> */
+
 
 $('.container').append(row);      
 }
@@ -43,10 +33,10 @@ $('.container').append(row);
 time.forEach(hour => showText)
 tasks.forEach(text => showText)
 
-$(".saveBtn").each(function (index, btn) {
-  $(btn).click(function (event) {
+$(".btn btn-primary saveBtn").each(function (index, button) {
+  $(button).click(function (event) {
     var taskText = $(this).parent().siblings('textarea').val();
-    var taskTime = $(this).parent().siblings('.hour').text();
+    var taskTime = $(this).parent().siblings('.col-md-1 hour').text();
 
     var completeTask = {
       text: taskText,
@@ -58,9 +48,3 @@ $(".saveBtn").each(function (index, btn) {
 })
 
 showText();
-
-
-
-///call text-task and make an each function and make it so there is a variable to represetn the different blocks
-//This will utilize parse.int
-//

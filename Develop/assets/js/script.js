@@ -35,8 +35,6 @@ function showText(hour) {
   textBlock.addClass('col-md-10 text-task').attr('id', hour);
   divButton.addClass('col-md-1');
   button.addClass('btn btn-primary saveBtn').attr('style', "padding: 38.5px 45px", 'border-radius: 0 15px 15px 0')
-  svgGraphic.addClass('bi-save').attr('style', 'color:white')
-  
 
   row.append(timeContainer);
   row.append(textBlock);
@@ -76,5 +74,5 @@ $('.saveBtn').click(function () {
   saveTasks();
 })
 
+//Loading user input back into the textarea from local storage
 loadTasks();
-showText();

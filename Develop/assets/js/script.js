@@ -1,4 +1,4 @@
-//Current date displayed at top of page
+//Current date displayed in DOM header
 var todayDisplayDate = $('#currentDay').text(moment().format("dddd, MMMM Do YYYY"));
 
 //Global variables for displayed time and corresponding military hours
@@ -27,14 +27,14 @@ function showText(hour) {
   var timeContainer = $('<div>');
   var textBlock = $('<textarea>');
   var divButton = $('<div>');
-  var button = $('<button>');
+  var button = $(`<button><i class='fas fa-save'></i></button>`);
   var svgGraphic = $('<svg>');
 
   row.addClass("row g-0").attr('id', hour + 'color');
   timeContainer.addClass('col-md-1 hour').text(hour);
   textBlock.addClass('col-md-10 text-task').attr('id', hour);
   divButton.addClass('col-md-1');
-  button.addClass('btn btn-primary saveBtn').attr('style', "padding: 38.5px 45px", 'border-radius: 0 15px 15px 0')
+  button.addClass('btn btn-primary saveBtn').attr('style', "padding: 26px 40px", 'border-radius: 0 15px 15px 0')
 
   row.append(timeContainer);
   row.append(textBlock);

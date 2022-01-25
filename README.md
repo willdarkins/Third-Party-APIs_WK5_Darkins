@@ -1,4 +1,3 @@
-# Work Day Scheduler Starter Code
 # Third-Party-APIs_WK5_Darkins
 ***
 
